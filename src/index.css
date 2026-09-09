@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================================
+   ADAPT-INDIA — DUAL THEME TOKENS & SYSTEM VARIABLES
+   ========================================================================= */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Foundations */
+  --theme-bg: #080b12;
+  --theme-bg-subtle: #0c1018;
+  --theme-surface: #0d121c;
+  --theme-surface-card: #111622;
+  --theme-surface-hover: #161f30;
+  --theme-surface-active: #1e293b;
+
+  /* Borders */
+  --theme-border: #1c2638;
+  --theme-border-subtle: #141b28;
+  --theme-border-strong: #2c3b52;
+
+  /* Typography */
+  --theme-text-primary: #f1f5f9;
+  --theme-text-secondary: #94a3b8;
+  --theme-text-muted: #64748b;
+
+  /* HUD & Floating Glass (Restrained cockpit) */
+  --theme-hud-bg: rgba(10, 14, 23, 0.88);
+  --theme-hud-border: rgba(30, 41, 59, 0.8);
+  --theme-hud-text: #f1f5f9;
+  --theme-header-bg: rgba(10, 13, 20, 0.95);
+  --theme-header-border: rgba(30, 41, 59, 0.8);
+
+  /* Shadows */
+  --theme-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 2px 6px -1px rgba(0, 0, 0, 0.3);
+  --theme-shadow-hud: 0 8px 30px rgba(0, 0, 0, 0.6);
+
+  /* Tables */
+  --theme-table-header-bg: #0d121c;
+  --theme-table-row-even: #090d15;
+  --theme-table-row-odd: #0d121c;
+  --theme-table-row-hover: #161f30;
+  --theme-badge-bg: #161e2e;
+
+  /* Semantics */
+  --theme-accent-brand: #0284c7;
+  --theme-accent-brand-hover: #0369a1;
+  --theme-safe: #10b981;
+  --theme-safe-bg: rgba(16, 185, 129, 0.12);
+  --theme-safe-border: rgba(16, 185, 129, 0.35);
+  --theme-warning: #f59e0b;
+  --theme-warning-bg: rgba(245, 158, 11, 0.12);
+  --theme-warning-border: rgba(245, 158, 11, 0.35);
+  --theme-danger: #f97316;
+  --theme-danger-bg: rgba(249, 115, 22, 0.12);
+  --theme-danger-border: rgba(249, 115, 22, 0.35);
+  --theme-critical: #ef4444;
+  --theme-critical-bg: rgba(239, 68, 68, 0.14);
+  --theme-critical-border: rgba(239, 68, 68, 0.4);
+  --theme-info: #06b6d4;
+  --theme-info-bg: rgba(6, 182, 212, 0.12);
+  --theme-info-border: rgba(6, 182, 212, 0.35);
+
+  /* Compatibility bindings for existing class names */
+  --bg-primary: #0a0d14;
+  --bg-dark-panel: #11151e;
+  --bg-light-panel: #f8fafc;
+  --border-dark: #1e2533;
+  --border-light: #e2e8f0;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Foundations (warm soft ivory/stone base, avoiding harsh white glare) */
+  --theme-bg: #f4f6f9;
+  --theme-bg-subtle: #ebedf2;
+  --theme-surface: #ffffff;
+  --theme-surface-card: #f9fafb;
+  --theme-surface-hover: #f1f4f9;
+  --theme-surface-active: #e2e8f0;
+
+  /* Borders (subtle gray with clean separation) */
+  --theme-border: #e2e8f0;
+  --theme-border-subtle: #edf2f7;
+  --theme-border-strong: #cbd5e1;
+
+  /* Typography (high-readability deep slate) */
+  --theme-text-primary: #0f172a;
+  --theme-text-secondary: #334155;
+  --theme-text-muted: #64748b;
+
+  /* HUD & Floating Glass (Clean, readable light panels over simulation) */
+  --theme-hud-bg: rgba(255, 255, 255, 0.92);
+  --theme-hud-border: rgba(203, 213, 225, 0.9);
+  --theme-hud-text: #0f172a;
+  --theme-header-bg: rgba(255, 255, 255, 0.96);
+  --theme-header-border: rgba(226, 232, 240, 0.95);
+
+  /* Shadows (soft ambient elevation) */
+  --theme-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --theme-shadow-hud: 0 8px 24px rgba(15, 23, 42, 0.12);
+
+  /* Tables */
+  --theme-table-header-bg: #f8fafc;
+  --theme-table-row-even: #ffffff;
+  --theme-table-row-odd: #f8fafc;
+  --theme-table-row-hover: #f1f5f9;
+  --theme-badge-bg: #f1f5f9;
+
+  /* Semantics (balanced, accessible contrast in light mode) */
+  --theme-accent-brand: #0284c7;
+  --theme-accent-brand-hover: #0369a1;
+  --theme-safe: #059669;
+  --theme-safe-bg: rgba(5, 150, 105, 0.1);
+  --theme-safe-border: rgba(5, 150, 105, 0.3);
+  --theme-warning: #d97706;
+  --theme-warning-bg: rgba(217, 119, 6, 0.1);
+  --theme-warning-border: rgba(217, 119, 6, 0.3);
+  --theme-danger: #ea580c;
+  --theme-danger-bg: rgba(234, 88, 12, 0.1);
+  --theme-danger-border: rgba(234, 88, 12, 0.3);
+  --theme-critical: #dc2626;
+  --theme-critical-bg: rgba(220, 38, 38, 0.1);
+  --theme-critical-border: rgba(220, 38, 38, 0.3);
+  --theme-info: #0891b2;
+  --theme-info-bg: rgba(8, 145, 178, 0.1);
+  --theme-info-border: rgba(8, 145, 178, 0.3);
+
+  /* Compatibility bindings */
+  --bg-primary: #f4f6f9;
+  --bg-dark-panel: #ffffff;
+  --bg-light-panel: #ffffff;
+  --border-dark: #e2e8f0;
+  --border-light: #e2e8f0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--theme-bg);
+  color: var(--theme-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* =========================================================================
+   GLOBAL THEME COMPONENT UTILITIES
+   ========================================================================= */
+
+.theme-bg {
+  background-color: var(--theme-bg);
+  color: var(--theme-text-primary);
+}
+
+.theme-surface {
+  background-color: var(--theme-surface);
+  border-color: var(--theme-border);
+  color: var(--theme-text-primary);
+}
+
+.theme-card {
+  background-color: var(--theme-surface-card);
+  border-color: var(--theme-border-subtle);
+  color: var(--theme-text-primary);
+}
+
+.theme-card-hover:hover {
+  background-color: var(--theme-surface-hover);
+}
+
+.theme-border {
+  border-color: var(--theme-border);
+}
+
+.theme-border-subtle {
+  border-color: var(--theme-border-subtle);
+}
+
+.theme-text-primary {
+  color: var(--theme-text-primary);
+}
+
+.theme-text-secondary {
+  color: var(--theme-text-secondary);
+}
+
+.theme-text-muted {
+  color: var(--theme-text-muted);
+}
+
+/* Translucent Floating Simulation HUD */
+.theme-hud {
+  background-color: var(--theme-hud-bg);
+  border-color: var(--theme-hud-border);
+  color: var(--theme-hud-text);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--theme-shadow-hud);
+}
+
+/* Header Navbar */
+.theme-header {
+  background-color: var(--theme-header-bg);
+  border-color: var(--theme-header-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Typography Helpers */
+.font-telemetry {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-feature-settings: "tnum" 1, "zero" 1;
+}
+
+/* Backwards-compatible surface utilities */
+.surface-dark {
+  background-color: var(--theme-surface);
+  color: var(--theme-text-primary);
+  border: 1px solid var(--theme-border);
+}
+
+.surface-dark-card {
+  background-color: var(--theme-surface-card);
+  border: 1px solid var(--theme-border-subtle);
+  color: var(--theme-text-primary);
+}
+
+.surface-light {
+  background-color: var(--theme-surface);
+  color: var(--theme-text-primary);
+  border: 1px solid var(--theme-border);
+  box-shadow: var(--theme-shadow);
+}
+
+.surface-light-card {
+  background-color: var(--theme-surface-card);
+  border: 1px solid var(--theme-border-subtle);
+  color: var(--theme-text-primary);
+}
+
+/* Custom engineering scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--theme-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--theme-border-strong);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-text-muted);
+}
+
+/* Automotive shadow */
+.shadow-automotive {
+  box-shadow: var(--theme-shadow);
+}
+
+.shadow-hud {
+  box-shadow: var(--theme-shadow-hud);
+}
+
+/* Needle transition for speedometer */
+.needle-transition {
+  transition: transform 0.12s cubic-bezier(0.2, 0.8, 0.4, 1);
+}
